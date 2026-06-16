@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping(value = "/v1/organizations/{organizationId}/license")
 public class LicenseServiceController {
 
-    private LicenseService licenseService;
+    private final LicenseService licenseService;
 
     @RequestMapping(value = "/{licenseId}", method = RequestMethod.GET)
     public License getLicense(@PathVariable("organizationId") String organizationId, @PathVariable("licenseId") String licenseId) {
