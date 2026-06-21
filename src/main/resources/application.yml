@@ -13,3 +13,20 @@ eureka:
     fetch-registry: true
     service-url:
       defaultZone: http://eurekaserver:8761/eureka/
+
+resilience4j:
+  circuitbreaker:
+    instances:
+      licenseService:
+        minimum-number-of-calls: 10
+        failure-rate-threshold: 75
+        wait-duration-in-open-state: 7000ms
+        sliding-window-size: 5
+        sliding-window-type: COUNT_BASED
+
+  thread-pool-bulkhead:
+    instances:
+      licenseService:
+        core-thread-pool-size: 30
+        max-thread-pool-size: 30
+        queue-capacity: 10
