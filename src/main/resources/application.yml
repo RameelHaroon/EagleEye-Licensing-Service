@@ -17,6 +17,8 @@ eureka:
 logging:
   pattern:
     level: "%5p [${spring.application.name:},%X{correlationId:-}]"
+  level:
+    com.thoughtmechanix.licensing_service: DEBUG
 
 resilience4j:
   circuitbreaker:
